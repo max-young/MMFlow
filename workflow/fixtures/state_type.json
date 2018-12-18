@@ -1,0 +1,30 @@
+[
+    {
+        "model": "workflow.statetype",
+        "pk": "start",
+        "fields": {
+            "description": "开始, 创建process保存但是不提交到下一步"
+        }
+    },
+    {
+        "model": "workflow.statetype",
+        "pk": "normal",
+        "fields": {
+            "description": "工作流程正常流转中"
+        }
+    },
+    {
+        "model": "workflow.statetype",
+        "pk": "complete",
+        "fields": {
+            "description": "工作流完成"
+        }
+    },
+    {
+        "model": "workflow.statetype",
+        "pk": "cancelled",
+        "fields": {
+            "description": "撤销, 发起者可以撤销"
+        }
+    }
+]

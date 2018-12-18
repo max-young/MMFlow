@@ -1,0 +1,37 @@
+[
+    {
+        "model": "workflow.actiontype",
+        "pk": "approve",
+        "fields": {
+            "description": "通过, 到下一流程"
+        }
+    },
+    {
+        "model": "workflow.actiontype",
+        "pk": "deny",
+        "fields": {
+            "description": "拒绝, 到上一个流程"
+        }
+    },
+    {
+        "model": "workflow.actiontype",
+        "pk": "restart",
+        "fields": {
+            "description": "拒绝, 到开始阶段"
+        }
+    },
+    {
+        "model": "workflow.actiontype",
+        "pk": "resolve",
+        "fields": {
+            "description": "直接通过"
+        }
+    },
+    {
+        "model": "workflow.actiontype",
+        "pk": "cancel",
+        "fields": {
+            "description": "取消"
+        }
+    }
+]
