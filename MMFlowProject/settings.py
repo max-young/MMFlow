@@ -27,7 +27,7 @@ SECRET_KEY = 'l6f^1=fm%9&*)#7sw(8$-=uq+yrrr$k&gd)tk4kv+g8f_tr=89'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -89,8 +89,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mmflow',
         'USER': 'root',
-        'PASSWORD': 'Yangle123',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'myvm1',
+        # 'HOST': 'host.docker.internal',
+        'HOST': '192.168.129.225',
         'OPTIONS': {
             # 消除migrate时出现的此警告:
             # Warning: (3719, "'utf8' is currently an alias for the character set UTF8MB3,
