@@ -18,6 +18,7 @@ from django.contrib import admin
 from rest_framework_swagger.views import get_swagger_view
 from rest_framework.documentation import include_docs_urls
 from rest_framework import permissions
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 schema_view = get_swagger_view(title='MMFlow API')
 
@@ -32,3 +33,5 @@ urlpatterns = [
     url(r'^docs/', include_docs_urls(title='MMFlow API文档', public=True,
                                      permission_classes=(permissions.IsAdminUser,)))
 ]
+
+urlpatterns += staticfiles_urlpatterns()

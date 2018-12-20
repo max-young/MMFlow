@@ -5,6 +5,6 @@
  ADD requirements.txt /code/
  RUN pip install -r requirements.txt
  ADD . /code/
- EXPOSE 80
+ EXPOSE 8000
  ENV NAME World
- CMD ["python", "manage.py", "runserver", "0.0.0.0:80"]
+ CMD ["gunicorn", "MMFlowProject.wsgi", "--bind", "0.0.0.0:8000"]
