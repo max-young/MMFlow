@@ -89,9 +89,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mmflow',
         'USER': 'root',
-        'PASSWORD': 'myvm1',
-        # 'HOST': 'host.docker.internal',
-        'HOST': '192.168.129.225',
+        # 'PASSWORD': 'myvm1',
+        'PASSWORD': 'Yangle123',
+        'HOST': 'host.docker.internal',
+        # 'HOST': '192.168.129.225',
         'OPTIONS': {
             # 消除migrate时出现的此警告:
             # Warning: (3719, "'utf8' is currently an alias for the character set UTF8MB3,
