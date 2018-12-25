@@ -1,0 +1,20 @@
+{
+  "main.css": "/static/static/css/main.4e265ac4.chunk.css",
+  "main.js": "/static/static/js/main.cd79e0c7.chunk.js",
+  "main.js.map": "/static/static/js/main.cd79e0c7.chunk.js.map",
+  "static/js/1.192d5467.chunk.js": "/static/static/js/1.192d5467.chunk.js",
+  "static/js/1.192d5467.chunk.js.map": "/static/static/js/1.192d5467.chunk.js.map",
+  "runtime~main.js": "/static/static/js/runtime~main.22d3d44b.js",
+  "runtime~main.js.map": "/static/static/js/runtime~main.22d3d44b.js.map",
+  "static/media/all.min.css": "/static/static/media/fa-solid-900.38508b2e.svg",
+  "static/media/ipad.png": "/static/static/media/ipad.daeab9d1.png",
+  "static/media/demo-image-01.jpg": "/static/static/media/demo-image-01.2cf5985b.jpg",
+  "static/media/demo-image-02.jpg": "/static/static/media/demo-image-02.d2e55529.jpg",
+  "static/media/grayscale.css": "/static/static/media/bg-masthead.4c6b4862.jpg",
+  "static/media/font-awesome.min.css": "/static/static/media/fontawesome-webfont.912ec66d.svg",
+  "static/media/main.css": "/static/static/media/bg-01.22ba1440.jpg",
+  "static/css/main.4e265ac4.chunk.css.map": "/static/static/css/main.4e265ac4.chunk.css.map",
+  "index.html": "/static/index.html",
+  "precache-manifest.40c04e2820c4cec8b543e98fa01b8200.js": "/static/precache-manifest.40c04e2820c4cec8b543e98fa01b8200.js",
+  "service-worker.js": "/static/service-worker.js"
+}
