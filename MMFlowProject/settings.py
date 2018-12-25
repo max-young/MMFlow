@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'rest_framework',
-    # 'rest_framework.authtoken',
     'rest_framework_swagger',
     'rolepermissions',
     'organization',
@@ -87,12 +86,10 @@ WSGI_APPLICATION = 'MMFlowProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mmflow',
-        'USER': 'root',
-        # 'PASSWORD': 'myvm1',
-        'PASSWORD': 'Yangle123',
-        'HOST': 'host.docker.internal',
-        # 'HOST': '192.168.129.225',
+        'NAME': config('DATABASE_NAME', 'mmflow'),
+        'USER': config('DATABASE_USER', 'root'),
+        'PASSWORD': config('DATABASE_PASSWORD', 'Yangle123'),
+        'HOST': config('DATABASE_HOST', 'host.docker.internal'),
         'OPTIONS': {
             # 消除migrate时出现的此警告:
             # Warning: (3719, "'utf8' is currently an alias for the character set UTF8MB3,
