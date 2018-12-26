@@ -5,6 +5,3 @@
  ADD requirements.txt /code/
  RUN pip install -r requirements.txt
  ADD . /code/
- CMD ["python", "manage.py", "migrate"]
- CMD ["python", "manage.py", "loaddata", "groups, state_type, action_type"]
- CMD ["python", "manage.py", "runserver"]
