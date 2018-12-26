@@ -87,7 +87,7 @@ class Navigation extends Component {
             <div className="mx-auto text-center">
               <h1 className="mx-auto my-0 text-uppercase">MM合同工作流</h1>
               <h2 className="text-white-50 mx-auto mt-2 mb-5">简单, 高效的工作流</h2>
-              <a href="/signup/" className="btn btn-info js-scroll-trigger">一键体验</a>
+              <a href="/api/experience/" className="btn btn-info js-scroll-trigger">一键体验</a>
             </div>
           </div>
         </header>
@@ -109,7 +109,6 @@ class Navigation extends Component {
                 </p>
               </div>
             </div>
-            {/* <img src={ipad_png} className="img-fluid" alt="" /> */}
           </div>
         </section>
       )
@@ -127,7 +126,7 @@ class Navigation extends Component {
               <div className="col-md-4 mb-3 mb-md-0">
                 <div className="card py-4 h-100">
                   <div className="card-body text-center">
-                    <i className="fas fa-map-marked-alt text-primary mb-2"></i>
+                    <i className="fas fa-map-marked-alt text-primary-custom mb-2"></i>
                     <h4 className="text-uppercase m-0">地址</h4>
                     <hr className="my-4" />
                     <div className="small text-black-50">北京</div>
@@ -138,7 +137,7 @@ class Navigation extends Component {
               <div className="col-md-4 mb-3 mb-md-0">
                 <div className="card py-4 h-100">
                   <div className="card-body text-center">
-                    <i className="fas fa-envelope text-primary mb-2"></i>
+                    <i className="fas fa-envelope text-primary-custom mb-2"></i>
                     <h4 className="text-uppercase m-0">邮箱</h4>
                     <hr className="my-4" />
                     <div className="small text-black-50">
@@ -151,7 +150,7 @@ class Navigation extends Component {
               <div className="col-md-4 mb-3 mb-md-0">
                 <div className="card py-4 h-100">
                   <div className="card-body text-center">
-                    <i className="fas fa-mobile-alt text-primary mb-2"></i>
+                    <i className="fas fa-mobile-alt text-primary-custom mb-2"></i>
                     <h4 className="text-uppercase m-0">电话</h4>
                     <hr className="my-4" />
                     <div className="small text-black-50">+86 18601036905</div>

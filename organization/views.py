@@ -3,46 +3,15 @@ from __future__ import unicode_literals
 
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
+from django.shortcuts import redirect
 from django_filters import rest_framework as filters
-from rest_framework import viewsets, status
-from rest_framework.decorators import permission_classes, api_view
-from rest_framework.response import Response
+from rest_framework import status, viewsets
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
 
 from .models import User
 from .serializers import UserSerializer
-
-
-# @require_POST
-# def login_view(request):
-#     """登录
-#     """
-#     username = request.POST.get('username')
-#     password = request.POST.get('password')
-#     user = authenticate(request, username=username, password=password)
-#     if user:
-#         login(request, user)
-#         return JsonResponse({'message': 'login success'}, status=200)
-#     else:
-#         return JsonResponse({'message': '账号密码错误'}, status=401)
-#
-#
-# @require_GET
-# def logout_view(request):
-#     """登出用户
-#     """
-#     logout(request)
-#     return JsonResponse({'message': '登出成功'}, status=200)
-#
-#
-# @require_GET
-# def current_user_view(request):
-#     """当前登录用户
-#     """
-#     current_user = request.user
-#     if current_user.is_authenticated:
-#         return JsonResponse(UserSerializer(current_user).data, status=200)
-#     return Http404()
 
 
 @api_view(['POST'])
@@ -114,6 +83,17 @@ def current_user_view(request):
     if current_user.is_authenticated:
         return Response(UserSerializer(current_user).data, status=status.HTTP_200_OK)
     return Response({'message': '未登录'}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny, ])
+def experience_view(request):
+    """首页让游客用已创建用户跳转后台来体验
+    """
+    # 提前创建好admin这个用户, 并分配好权限
+    user = User.objects.get(username='admin')
+    login(request, user)
+    return redirect('/flow/')
 
 
 class UserFilter(filters.FilterSet):

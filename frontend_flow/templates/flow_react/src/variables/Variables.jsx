@@ -490,7 +490,7 @@ const iconsArray = [
 //
 // Data for Pie Chart
 var dataPie = {
-  labels: ["40%", "20%", "40%"],
+  labels: ["40%", "放塑料袋口", "4432"],
   series: [40, 20, 40]
 };
 var legendPie = {
@@ -748,6 +748,34 @@ let actions = [
   }
 ]
 
+let statistics_data = {
+  // 待处理合同流程
+  "for_operate_processes_data": [
+      {
+          "id": 9,
+          "contract": {
+              "contract_name": "nnn",
+              "party_a_name": "nnn",
+              "party_b_name": "nnn",
+              "contract_content": ""
+          },
+          "status": "normal",
+          "current_state": "总监",
+          "creator_name": "max.young.m",
+          "title": "nnn",
+          "created_time": "2018-12-17T02:55:33.127101Z",
+          "updated_time": "2018-12-17T06:02:40.908279Z",
+          "creator": 1,
+          "updator": 1
+      }
+  ],
+  // 待处理合同流程按状态数量统计
+  "state_statistics": {
+      "总监": 6,
+      "主管": 1
+  }
+}
+
 module.exports = {
   style, // For notifications (App container and Notifications view)
   userThArray,
@@ -772,5 +800,6 @@ module.exports = {
   user_search_response_data,
   process_data,
   process_list_data,
-  actions
+  actions,
+  statistics_data
 };
