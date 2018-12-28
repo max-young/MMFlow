@@ -602,8 +602,9 @@ let initial_flow_template_data = [
     'steps': [
       {
         "operators": [],
-        "step_name": "步骤名称",
+        "step_name": "",
         "work_mode": "or",
+        "no":1
       }
     ]
   }
