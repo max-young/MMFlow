@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'rest_framework',
-    # 'rest_framework.authtoken',
     'rest_framework_swagger',
     'rolepermissions',
     'organization',
@@ -87,11 +86,10 @@ WSGI_APPLICATION = 'MMFlowProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mmflow',
-        'USER': 'root',
-        'PASSWORD': 'myvm1',
-        # 'HOST': 'host.docker.internal',
-        'HOST': '192.168.129.225',
+        'NAME': config('DATABASE_NAME', 'mmflow'),
+        'USER': config('DATABASE_USER', 'root'),
+        'PASSWORD': config('DATABASE_PASSWORD', 'Yangle123'),
+        'HOST': config('DATABASE_HOST', 'host.docker.internal'),
         'OPTIONS': {
             # 消除migrate时出现的此警告:
             # Warning: (3719, "'utf8' is currently an alias for the character set UTF8MB3,
@@ -138,6 +136,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+STATIC_ROOT = BASE_DIR + '/static/'
 
 STATIC_URL = '/static/'
 

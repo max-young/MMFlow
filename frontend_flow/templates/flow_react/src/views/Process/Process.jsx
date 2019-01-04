@@ -15,6 +15,33 @@ import Button from "components/CustomButton/CustomButton.jsx";
 import {EditorState, convertToRaw, convertFromRaw} from 'draft-js';
 import axios from 'axios';
 
+const action_type = {
+  'approve': '通过',
+  'restart': '拒绝'
+}
+
+class Action extends Component {
+  render() {
+    let data = this.props.action_data
+    let action_repr = action_type[data.action_type]
+    return (
+      <div className="typo-line">
+        <h5>
+          <p className="category">{data.operator_name}</p>
+          {action_repr}
+        </h5>
+        {data.description.length > 0 &&
+        <blockquote>
+          <p>
+            {data.description}
+          </p>
+        </blockquote>
+        }
+      </div>
+    )
+  }
+}
+
 class ContractRequest extends Component {
   constructor(props) {
     super(props)
@@ -240,19 +267,7 @@ class ContractRequest extends Component {
                     <div>
                       {
                         this.state.actions.map((data) =>
-                          <div className="typo-line">
-                            <h5>
-                              <p className="category">{data.operator_name}</p>
-                              {data.action_type}
-                            </h5>
-                            {data.description.length > 0 &&
-                            <blockquote>
-                              <p>
-                                {data.description}
-                              </p>
-                            </blockquote>
-                            }
-                          </div>
+                          <Action action_data={data} />
                         )
                       }
                     </div>

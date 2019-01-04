@@ -92,7 +92,7 @@ class AddStaff extends Component {
 
   handleSearchChange(event) {
     this.setState({'searchArg': event.target.value})
-    axios.get('/api/user/?like_username_firstname' + this.state.searchArg)
+    axios.get('/api/user/?like_username_firstname=' + event.target.value)
     .then(res => {
       let res_data = res.data.results
       if (res_data) {

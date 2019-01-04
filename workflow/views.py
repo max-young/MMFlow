@@ -3,7 +3,7 @@ from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from .models import FlowTemplate, Process
+from .models import FlowTemplate, Process, State
 from .serializers import (ActionSerializer, FlowTemplateSerializer,
                           ProcessSerializer)
 from .services import ProcessService
@@ -406,3 +406,56 @@ class ProcessView(viewsets.ModelViewSet):
         ProcessService.process_transition(process_obj, request.user, request.data.get('operate_type'),
                                           request.data.get('description'))
         return Response({'message': '审核成功'}, status=status.HTTP_200_OK)
+
+    @action(detail=False, methods=['get'])
+    def statistics(self, request):
+        """用户首页统计
+
+        Response
+        ```json
+        {
+            // 待处理合同流程
+            "for_operate_processes_data": [
+                {
+                    "id": 9,
+                    "contract": {
+                        "contract_name": "nnn",
+                        "party_a_name": "nnn",
+                        "party_b_name": "nnn",
+                        "contract_content": ""
+                    },
+                    "status": "normal",
+                    "current_state": "总监",
+                    "creator_name": "max.young.m",
+                    "title": "nnn",
+                    "created_time": "2018-12-17T02:55:33.127101Z",
+                    "updated_time": "2018-12-17T06:02:40.908279Z",
+                    "creator": 1,
+                    "updator": 1
+                }
+            ],
+            // 待处理合同流程按状态数量统计
+            "state_statistics": {
+                "总监": 6,
+                "主管": 1
+            }
+        }
+        ```
+        """
+        user = request.user
+        for_operate_states = State.objects.filter(
+            operators=user, active=True, state_type__name__in=('start', 'normal')).values(
+                'process', 'name').all()
+
+        process_ids = [i.get('process') for i in for_operate_states]
+        for_operate_processes = Process.objects.filter(id__in=process_ids).all()
+        process_serializer = ProcessSerializer(for_operate_processes, many=True)
+
+        import collections
+        state_statistics = dict(collections.Counter(i['name'] for i in for_operate_states))
+
+        result = {
+            'for_operate_processes_data': process_serializer.data,
+            'state_statistics': state_statistics
+        }
+        return Response(result, status=status.HTTP_200_OK)
