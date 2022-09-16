@@ -6,7 +6,7 @@
     "@types/slate-react": "^0.20.2",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
-    "bootstrap": "3.3.7",
+    "bootstrap": "3.4.1",
     "chartist": "0.10.1",
     "draft-js": "^0.10.5",
     "immutability-helper": "^2.8.1",
